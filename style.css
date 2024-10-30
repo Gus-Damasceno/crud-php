@@ -1,0 +1,19 @@
+html{
+    margin: 0;
+}
+
+.pd{
+    padding: 10px;
+
+}
+
+.mg{
+    margin: 10px;
+}
+
+.centralizar{
+    /* border: solid black 1px; */
+    margin: auto0;
+    text-align: center;
+   
+}

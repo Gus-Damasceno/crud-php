@@ -1,5 +1,5 @@
 <?php
-require 'db.php';
+require 'db.php';include 'header.php';
 
 $codigo = $_GET['codigo'];
 $stmt = $pdo->prepare("DELETE FROM produtos WHERE codigo = ?");

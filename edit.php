@@ -1,5 +1,5 @@
 <?php
-require 'db.php';
+require 'db.php';include 'header.php';
 
 $codigo = $_GET['codigo'];
 $stmt = $pdo->prepare("SELECT * FROM produtos WHERE codigo = ?");
@@ -30,25 +30,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <head>
   <meta charset="UTF-8">
-  <title>Editar Produto</title>
+  <title>Editar Defensivo</title>
 </head>
 
 <body>
-  <h1>Editar Produto</h1>
+
+  <div class="centralizar">
+
+  <h1 class="pd mg"> Editar Defensivo</h1>
   <form method="POST" action="">
 
+    <div class="mb-3">
     <label for="descritivo">Descritivo:</label>
     <input type="text" name="descritivo" id="descritivo" value="<?= $produtos['descritivo'] ?>" required><br>
+    </div>
 
+    <div class="mb-3">    
     <label for="udm">Udm:</label>
-    <input type="text" name="udm" id="udm" value="<?= $produtos['udm'] ?>" required><br>
+    <select name="udm" id="udm" class="form-select">
+       <option value="-" <?= $produtos['udm'] == '-' ? 'selected' : '' ?>>-</option>
+       <option value="LITRO" <?= $produtos['udm'] == 'LITRO' ? 'selected' : '' ?>>Litro</option>
+       <option value="KG" <?= $produtos['udm'] == 'KG' ? 'selected' : '' ?>>Kg</option>
+    </select>
+</div>
 
+    <div class="mb-3">
     <label for="categoria">Categoria:</label>
-    <input type="text" name="categoria" id="categoria" value="<?= $produtos['categoria'] ?>" required><br>
+    <input type="text" name="categoria" id="categoria" value="<?= $produtos['categoria'] ?>" required><br>      
+    </div>
 
-    <button type="submit">Atualizar</button>
+  
+   
+    <button type="submit" class="btn btn-primary ">Atualizar</button>
   </form>
-  <a href="index.php">Voltar</a>
+  <a href="index.php"> <button  type="button" class="btn btn-secondary mg">Voltar</button> </a>
+
+  </div>
 </body>
 
 </html>
